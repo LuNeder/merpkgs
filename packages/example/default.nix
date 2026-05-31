@@ -1,0 +1,5 @@
+{fetchFromGitHub, stdenv}:
+
+stdenv.mkDerivation {
+  # ...
+}
