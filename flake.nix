@@ -1,19 +1,19 @@
 {
+  description = "🧜‍♀️ Luana's nix package repository. Includes packages such as catask and buttui, as well as alternative versions of nixpkgs packages.";
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
   };
 
-  outputs = {nixpkgs, ...}: let
-    systems = ["x86_64-linux" "aarch64-linux"];
-    forEachSystem = nixpkgs.lib.genAttrs systems;
+  outputs = {self, nixpkgs, ...}: let
+    forAllSystems = nixpkgs.lib.genAttrs nixpkgs.lib.systems.flakeExposed;
   in {
     nixosModules = import ./modules/nixos;
     homeModules = import ./modules/home-manager;
     overlays.default = final: _prev: {
-      # Namespace for overlay users is 'mer'
-      mer = import ./packages {pkgs = final;};
+      # Namespace for overlay users is 'merpkgs'
+      merpkgs = import ./packages {pkgs = final;};
     };
-    packages = forEachSystem (system:
+    packages = forAllSystems (system:
       import ./packages {pkgs = nixpkgs.legacyPackages.${system};}
     );
   };

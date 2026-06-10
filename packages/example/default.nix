@@ -1,4 +1,4 @@
-{fetchFromGitHub, stdenv}:
+{fetchFromGitea, stdenv}:
 
 stdenv.mkDerivation {
   # ...
