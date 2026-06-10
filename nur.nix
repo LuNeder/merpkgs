@@ -1,4 +1,4 @@
-# NUR compatible entry point
+# NUR compatible entry point (UNTESTED!!!)
  
 # pkgs is provided by NUR user
 {pkgs}: {
