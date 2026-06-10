@@ -1,13 +1,13 @@
 {lib, pkgs, config}: {
   # Interface
   options = {
-    mer.services.foo = {
+    merpkgs.services.foo = {
       # ...
     };
   };
 
   # Implementation
-  config = lib.mkIf config.mer.services.foo.enable {
+  config = lib.mkIf config.merpkgs.services.foo.enable {
     # ...
   };
 }

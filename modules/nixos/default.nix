@@ -1,3 +1,4 @@
 {
-  example = import ./example.nix;
+  #example = import ./example.nix;
+  catask = import ./catask;
 }
