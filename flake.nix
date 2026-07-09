@@ -9,6 +9,7 @@
   in {
     nixosModules = import ./modules/nixos;
     homeModules = import ./modules/home-manager;
+    systemManagerModules = import ./modules/system-manager;
     overlays.default = final: _prev: {
       # Namespace for overlay users is 'merpkgs'
       merpkgs = import ./packages {pkgs = final;};
