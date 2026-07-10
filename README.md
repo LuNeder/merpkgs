@@ -2,7 +2,7 @@
 
 🧜‍♀️ My nix package repository for when I don't want to deal with nixpkgs maintainers bullshit.
 
-Includes packages and modules such as catask and buttui, as well as beta or alternative versions of nixpkgs packages. See full list below. These are here for my own use and made public in the hope that they may be useful, but everything is provided with no warranty at all. Use at your own risk.
+Includes packages and modules such as catask and buttui, as well as utilities for Linux phones with postmarketOS and beta or alternative versions of nixpkgs packages. See full list below. These are here for my own use and made public in the hope that they may be useful, but everything is provided with no warranty at all. Use at your own risk.
 
 ## Adding to NixOS
 
