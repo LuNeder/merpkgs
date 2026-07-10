@@ -1,5 +1,5 @@
 {
-  description = "🧜‍♀️ Luana's nix package repository. Includes packages such as catask and buttui, as well as beta or alternative versions of packages I maintain on nixpkgs.";
+  description = "🧜‍♀️ Luana's nix package repository. Includes packages such as catask and buttui, as well as utilities for Linux phones with postmarketOS and beta or alternative versions of packages I maintain on nixpkgs.";
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
   };
