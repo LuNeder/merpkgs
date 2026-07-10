@@ -62,7 +62,18 @@ merpkgs.services.catask = {
 };
 ```
 
-Similarly, for Home Manager modules (tho none are available yet!):
+Similarly, for system-manager and Home Manager modules:
+
+```nix
+imports = [
+  ./hardware-configuration.nix
+  # ...
+  ] ++ (builtins.attrValues inputs.merpkgs.systemManagerModules) ++
+  (builtins.attrValues inputs.merpkgs.homeModules)
+;
+```
+
+Similarly, for NixOS and Home Manager modules (tho no Home Manager modules are available yet!):
 
 ```nix
 imports = [
@@ -81,8 +92,14 @@ imports = [
 
 ## NixOS modules list
 
-- `merpkgs.services.catask`
+- `merpkgs.services.catask`: Catask, see above
 - More to come soon!
+
+## system-manager modules list
+
+- `merpkgs.services.ensureAlpinePackages`: Install listed packages via apk on postmarketOS (and maybe Alpine too, tho only tested on postmarketOS). Removing packages from the list will not automatically uninstall them.
+- More to come soon!
+
 
 ## Special thanks
 
