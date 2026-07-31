@@ -2,11 +2,14 @@
   lib,
   stdenv,
   fetchFromGitea,
-  python3Packages,
+  python313Packages,
   postgresql,
   makeWrapper,
 }:
 
+let
+  python = python313Packages;
+in
 stdenv.mkDerivation (finalAttrs: {
   pname = "catask";
   version = "2.7.3";
@@ -20,7 +23,7 @@ stdenv.mkDerivation (finalAttrs: {
   };
 
   propagatedBuildInputs = [
-    (python3Packages.python.withPackages (
+    (python.python.withPackages (
       ps: with ps; [
         flask
         gunicorn
@@ -54,7 +57,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   # Semi-opinionated script to allow running, more configuration is available in the NixOS module
   preFixup = ''
-    makeWrapper "${lib.getExe python3Packages.gunicorn}" "$out/bin/catask" \
+    makeWrapper "${lib.getExe python.gunicorn}" "$out/bin/catask" \
       --add-flags "-w" \
       --add-flags "4" \
       --add-flags "--pythonpath" \
@@ -62,7 +65,7 @@ stdenv.mkDerivation (finalAttrs: {
       --add-flags "app:app" \
       --prefix PATH : "${lib.makeBinPath finalAttrs.propagatedBuildInputs}"
 
-      makeWrapper "${lib.getExe python3Packages.flask}" "$out/bin/catask-init-db" \
+      makeWrapper "${lib.getExe python.flask}" "$out/bin/catask-init-db" \
       --chdir "$out/share/catask" \
       --add-flags "init-db" \
       --set-default PYTHONDONTWRITEBYTECODE "true" \
