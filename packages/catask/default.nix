@@ -2,24 +2,24 @@
   lib,
   stdenv,
   fetchFromGitea,
-  python313Packages,
+  python314Packages,
   postgresql,
   makeWrapper,
 }:
 
 let
-  python = python313Packages;
+  python = python314Packages;
 in
 stdenv.mkDerivation (finalAttrs: {
   pname = "catask";
-  version = "2.7.3";
+  version = "2.7.6";
 
   src = fetchFromGitea {
     domain = "codeberg.org";
     owner = "catask-org";
     repo = "catask";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-cmFYeQWIBLTrLctX/TcQlzK8KGXiUUj8cWc6ZFSOzuc=";
+    hash = "sha256-KMS/9SfqlNCqAowXgZNlsJllhVVbJcTm29UN9xBUsno=";
   };
 
   propagatedBuildInputs = [
