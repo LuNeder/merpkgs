@@ -44,6 +44,7 @@ stdenv.mkDerivation (finalAttrs: {
         authlib
         sentry-sdk
         mastodon-py
+        nh3
       ]
     ))
     postgresql
