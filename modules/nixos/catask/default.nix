@@ -34,6 +34,7 @@ let
         authlib
         sentry-sdk
         mastodon-py
+        nh3
       ]
     )
   );
