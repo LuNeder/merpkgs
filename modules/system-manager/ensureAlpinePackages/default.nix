@@ -29,7 +29,6 @@ in
     systemd.services.ensureAlpinePackages = {
       description = "apk runner";
       serviceConfig = {
-        # Currently Catask does not let you override config or mutable paths, so this very cursed script is needed
         ExecStart = pkgs.writeScript "ensureAlpinePackages" ''
           #!${pkgs.runtimeShell}
           /usr/sbin/apk add --interactive=no ${lib.concatStringsSep " " cfg.packages}
