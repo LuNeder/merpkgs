@@ -1,4 +1,5 @@
 {
   #example = import ./example.nix;
   catask = import ./catask;
+  midscroll = import ./midscroll;
 }
